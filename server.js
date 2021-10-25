@@ -1,5 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const session = require('express-session')
+const passport = require('passport')
 const cors = require('cors')
 require('dotenv').config()
 
@@ -25,6 +27,24 @@ mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTop
     }
   }
 )
+
+//passport
+require('./passport-config/passportConfig')(passport)
+
+//Session
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 4 * 60 * 60 * 1000
+    }
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+
+//Routers
+app.use('/user', require('./Routers/UserRouter'))
 
 app.get('/', (req, res) => {
     res.json('e-kasir API is alive!')
