@@ -45,6 +45,7 @@ app.use(passport.session())
 
 //Routers
 app.use('/user', require('./Routers/UserRouter'))
+app.use('/product', require('./Routers/ProductRouter'))
 
 app.get('/', (req, res) => {
     res.json('e-kasir API is alive!')
