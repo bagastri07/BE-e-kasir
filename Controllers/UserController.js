@@ -2,12 +2,16 @@ const User = require('../Models/UserSchema')
 const bcrypt = require('bcrypt')
 const response = require('../_helpers/response')
 const passport = require('passport')
+const { clearCache } = require('ejs')
 
 const UserController = {
     create: (req, res) => {
         User.findOne({username: req.body.username}, async (err, doc) => {
             if (err) return response(res, 500, false, err)
-            if (doc) return response(res, 400, false, 'Username has been taken')
+            if (doc) {
+                req.flash('error', 'Username tersebut sudah terpakai')
+                return res.redirect('/register')
+            }
 
             var userData = req.body
             userData.password = await bcrypt.hash(userData.password, 5)
@@ -19,7 +23,8 @@ const UserController = {
             if (error) return response(res, 400, false, error)
 
             const saveUser = await newUser.save();
-            return response(res, 200, true, 'User has been created', saveUser)
+            req.flash('info', 'Akun berhasil dibuat')
+            return res.redirect('/register')
         })
     },
     view: (req, res) => {
@@ -40,10 +45,13 @@ const UserController = {
     login: (req, res, next) => {
         passport.authenticate('local', (err, user, info) => {
             if (err) return response(res, 500, false, err)
-            if (!user) response(res, 400, false, 'No User found')
+            if (!user) {
+                req.flash('error', 'Username atau Password anda salah')
+                res.redirect('/')
+            }
             req.logIn(user, (err) => {
               if (err) { return next(err); }
-              return response(res, 200, true, 'Succes Login', user);
+              res.redirect('/dashboard')
             });
           })(req, res, next);
     },
@@ -51,7 +59,7 @@ const UserController = {
         if(!req.user) return response(res, 400, false, 'You need to login to logout')
         let username = req.user.username
         req.logout()
-        return response(res, 200, true, 'You are logout successfully', {username: username})
+        res.redirect('/')
     }
 }
 

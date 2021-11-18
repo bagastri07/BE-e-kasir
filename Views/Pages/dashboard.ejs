@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="">
+
+    <title></title>
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 h-screen antialiased leading-none font-sans">
+    <div id="app">
+        <header class="bg-indigo-500 py-6">
+            <div class="container mx-auto mr-10 flex justify-start items-center px-6">
+                <div>
+                    <a href="" class="text-lg font-semibold text-gray-100 no-underline">
+                        E-Kasir
+                    </a>
+                </div>
+                <nav class="space-x-8 text-white text-sm sm:text-base flex justify-left  mr-10 ml-10">
+                    <a class="no-underline hover:underline" href="/dashboard.html">Dashboard</a>
+                    <a class="no-underline hover:underline" href="/stokbarang.html">Stok Barang</a>
+                    <a class="no-underline hover:underline" href="">Profil</a>
+                    <form action="/user/logout" method="POST">
+                        <a class="no-underline hover:underline" href="#" onclick="this.parentNode.submit()">Logout</a>  
+                    </form>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <section class="mr-20 ml-20 mt-10 flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
+
+        <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+            Dashboard
+        </header>
+
+        <div class="w-full p-6">
+            <section class="text-gray-600 body-font">
+                <div class="container px-5 py-24 mx-auto">
+                    <div class="flex flex-wrap w-full mb-8">
+                        <div class="w-full mb-6 lg:mb-0">
+                            <h1 class="sm:text-4xl text-5xl font-medium title-font mb-2 text-gray-900">Statistik Toko</h1>
+                            <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap -m-4 text-center">
+                        <div class="p-4 sm:w-1/4 w-1/2">
+                            <div class="bg-indigo-500 rounded-lg p-2 xl:p-6">
+                                <h2 class="title-font font-medium sm:text-4xl text-3xl text-white">2.7K</h2>
+                                <p class="leading-relaxed text-gray-100 font-bold">Total Pendapatan</p>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:w-1/4 w-1/2">
+                            <div class="bg-indigo-500 rounded-lg p-2 xl:p-6">
+                                <h2 class="title-font font-medium sm:text-4xl text-3xl text-white">1.8K</h2>
+                                <p class="leading-relaxed text-gray-100 font-bold">Pendapatan Bulanan</p>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:w-1/4 w-1/2">
+                            <div class="bg-indigo-500 rounded-lg p-2 xl:p-6">
+                                <h2 class="title-font font-medium sm:text-4xl text-3xl text-white">35</h2>
+                                <p class="leading-relaxed text-gray-100 font-bold">Jumlah Penjualan</p>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:w-1/4 w-1/2">
+                            <div class="bg-indigo-500 rounded-lg p-2 xl:p-6">
+                                <h2 class="title-font font-medium sm:text-4xl text-3xl text-white">4</h2>
+                                <p class="leading-relaxed text-gray-100 font-bold">Jumlah Produk</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    
+</body>
+
+</html>
