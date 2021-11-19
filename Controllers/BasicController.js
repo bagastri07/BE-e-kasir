@@ -1,3 +1,8 @@
+const { data } = require('autoprefixer')
+const Product = require('../Models/ProductSchema')
+
+
+
 const BasicController = {
     login: (req, res) => {
         res.render('Pages/login')
@@ -6,7 +11,15 @@ const BasicController = {
         res.render('Pages/register')
     },
     dashboard: (req, res) => {
-        res.render('Pages/dashboard')
+        Product.countDocuments({user: req.user._id}, (err, countDoc) => {
+            if (err) throw err
+            
+            res.render('Pages/dashboard', {
+                userName: req.user.name,
+                productCount: countDoc
+            })
+        })
+        
     }
 }
 

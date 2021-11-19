@@ -14,23 +14,7 @@
 
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
     <div id="app">
-        <header class="bg-indigo-500 py-6">
-            <div class="container mx-auto mr-10 flex justify-start items-center px-6">
-                <div>
-                    <a href="" class="text-lg font-semibold text-gray-100 no-underline">
-                        E-Kasir
-                    </a>
-                </div>
-                <nav class="space-x-8 text-white text-sm sm:text-base flex justify-left  mr-10 ml-10">
-                    <a class="no-underline hover:underline" href="/dashboard.html">Dashboard</a>
-                    <a class="no-underline hover:underline" href="/stokbarang.html">Stok Barang</a>
-                    <a class="no-underline hover:underline" href="">Profil</a>
-                    <form action="/user/logout" method="POST">
-                        <a class="no-underline hover:underline" href="#" onclick="this.parentNode.submit()">Logout</a>  
-                    </form>
-                </nav>
-            </div>
-        </header>
+        <%- include('../Templates/header-after-login') -%>
     </div>
 
     <section class="mr-20 ml-20 mt-10 flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
@@ -46,6 +30,7 @@
                         <div class="w-full mb-6 lg:mb-0">
                             <h1 class="sm:text-4xl text-5xl font-medium title-font mb-2 text-gray-900">Statistik Toko</h1>
                             <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+                            <p class="mt-4 text-gray-900">Selamat Datang <a href="/user" class="text-indigo-500 font-medium"><%= userName %></a>!</p>
                         </div>
                     </div>
                     <div class="flex flex-wrap -m-4 text-center">
@@ -69,7 +54,7 @@
                         </div>
                         <div class="p-4 sm:w-1/4 w-1/2">
                             <div class="bg-indigo-500 rounded-lg p-2 xl:p-6">
-                                <h2 class="title-font font-medium sm:text-4xl text-3xl text-white">4</h2>
+                                <h2 class="title-font font-medium sm:text-4xl text-3xl text-white"><%= productCount %></h2>
                                 <p class="leading-relaxed text-gray-100 font-bold">Jumlah Produk</p>
                             </div>
                         </div>

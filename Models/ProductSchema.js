@@ -10,6 +10,11 @@ const ProductSchema = new Schema({
         type: Number,
         required: true
     },
+    stock: {
+        type: Number,
+        default: 10,
+        required: true
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'

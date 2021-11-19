@@ -1,0 +1,17 @@
+<header class="bg-indigo-500 py-6">
+    <div class="container mx-auto mr-10 flex justify-start items-center px-6">
+        <div>
+            <a href="" class="text-lg font-semibold text-gray-100 no-underline">
+                E-Kasir
+            </a>
+        </div>
+        <nav class="space-x-8 text-white text-sm sm:text-base flex justify-left  mr-10 ml-10">
+            <a class="no-underline hover:underline" href="/dashboard">Dashboard</a>
+            <a class="no-underline hover:underline" href="/product">Stok Barang</a>
+            <a class="no-underline hover:underline" href="/user">Profil</a>
+            <form action="/user/logout" method="POST">
+                <a class="no-underline hover:underline" href="#" onclick="this.parentNode.submit()">Logout</a>  
+            </form>
+        </nav>
+    </div>
+</header>

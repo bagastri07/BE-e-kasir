@@ -58,6 +58,10 @@ app.use('/user', require('./Routers/UserRouter'))
 app.use('/product', require('./Routers/ProductRouter'))
 app.use(require('./Routers/BasicRouter'))
 
+//Capture All 404 errorss
+app.use(function (req,res,next){
+	res.status(404).send('Unable to find the requested resource!');
+});
 
 app.listen(port, () => {
     console.log('Server is running at port: ' + port)
