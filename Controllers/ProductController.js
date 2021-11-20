@@ -11,13 +11,17 @@ const ProductController = {
 
         //validate error
         err = await newProduct.validateSync()
-        if(err) return response(res, 400, false, err)
+        if(err) {
+            req.flash('info', err)
+            res.redirect('/product/add')
+        }
 
         const saveProduct = await newProduct.save()
-        return response(res, 200, true, 'Product Created', saveProduct)
+        req.flash('info',  `${saveProduct.name} berhasil ditambahkan`)
+        res.redirect('/product/add')
     },
     createPage: (req, res) => {
-        res.render
+        res.render('Pages/product-add')
     },
     viewAll: (req, res) => {
         Product.find({user: req.user._id}).select('name price stock _id').exec( async (err, doc) => {
@@ -28,11 +32,39 @@ const ProductController = {
             })
         })
     },
+    update: (req, res) => {
+        Product.findOneAndUpdate({_id: req.params.id, user: req.user._id}, req.body, {new: true}, (err, doc) => {
+            if (err) throw err
+            if(!doc) {
+                req.flash('info', err)
+                res.redirect('/product/update')
+            }
+            req.flash('info', `${doc.name} berhasil diupdate`)
+            res.redirect(`/product/update/${doc._id}`)
+        })
+    },
+    updatePage: (req, res) => {
+        Product.findOne({_id: req.params.id}, (err, doc) => {
+            if (err) throw err
+            if(!doc) {
+                req.flash('info', err)
+                res.redirect('/product')
+            }
+            res.render('Pages/product-update', {
+                product: doc
+            })
+        })
+        
+    },
     delete: (req, res) => {
         Product.findOneAndRemove({_id: req.params.id, user: req.user._id}, (err, doc) => {
-            if (err) return response(res, 500, false, err)
-            if (!doc) return response(res, 500, 'Product not found')
-            return response(res, 200, true, 'Product has been deleted', doc)
+            if (err) throw err
+            if (!doc) {
+                req.flash('info', 'Produk tidak ditemukan')
+                res.redirect('/product')
+            }
+            req.flash('info', `${doc.name} telah dihapus!`)
+            res.redirect('/product')
         })
     }
 

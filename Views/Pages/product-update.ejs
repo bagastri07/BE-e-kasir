@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="">
+
+    <title></title>
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 h-screen antialiased leading-none font-sans">
+    <div id="app">
+        <%- include('../Templates/header-after-login') -%>
+    </div>
+
+    <section class="mr-20 ml-20 mt-10 flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
+
+        <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+            Ubah Data Barang
+        </header>
+
+        <div class="w-full p-6">
+            <form method="POST" action="/product/<%= product._id %>?_method=PUT">
+
+                <div class="flex flex-col mb-4">
+                    <label class="mb-2 text-gray-900" for="first_name">Nama Barang</label>
+                    <input class="w-96 border py-2 px-3 text-grey-800" type="text" name="name" value="<%= product.name %>" id="nama_barang">
+                </div>
+                <div class="flex flex-col mb-4">
+                    <label class="mb-2 text-gray-900" for="first_name">Stok Barang</label>
+                    <input class="w-96 border py-2 px-3 text-grey-800" type="number" name="stock" value="<%= product.stock %>" id="stok_barang">
+                </div>
+                <div class=" flex flex-col mb-4">
+                    <label class="mb-2 text-gray-900" for="first_name">Harga Barang</label>
+                    <input class="w-96 border py-2 px-3 text-grey-800" type="number" step="0.01" name="price" value="<%= product.price %>" id="harga_barang">
+                </div>
+                <button class=" w-40 h-10 mb-6 bg-green-500 text-white font-bold py-1 px-2 border rounded hover:bg-green-700" type="submit">Ubah Data Barang</button>
+                <div class=" flex flex-col mb-4">
+                    <% if (messages.info) { %>
+                        <div class="alert alert-success" role="alert">
+                            <p class="mt-4 text-gray-900"><%= messages.info %></p>
+                        </div>
+                      <% } %>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    
+</body>
+
+</html>

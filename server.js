@@ -5,6 +5,7 @@ const passport = require('passport')
 const cors = require('cors')
 const path = require('path')
 const flash = require('express-flash')
+const methodOverride = require('method-override')
 require('dotenv').config()
 
 const app = express()
@@ -26,6 +27,9 @@ app.use(express.static(path.join(__dirname, 'Public')))
 //BodyParser
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
+
+//Method override
+app.use(methodOverride('_method'))
 
 //Database Connection
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true, }, (err) => {
