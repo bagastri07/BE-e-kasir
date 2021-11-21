@@ -1,54 +1,152 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="">
+    <meta name="csrf-token" content="" />
 
-    <title></title>
-    <link href="/css/style.css" rel="stylesheet">
-   
-</head>
+    <title>Signup</title>
+    <link rel="icon" type="image/x-icon" href="/icon.ico" />
+    <link href="/css/style.css" rel="stylesheet" />
+  </head>
 
-<body class="bg-gray-100 h-screen antialiased leading-none font-sans">
-    <div id="app">
-        <%- include('../Templates/header-basic') -%>
-    </div>
+  <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
+    <div id="app"><%- include('../Templates/header-basic') -%></div>
     <div class="max-w-lg mx-auto mt-20">
-        <form action="/user/register" method="POST">
-            <div class="mb-6">
-                <label for="name" class="text-sm font-medium text-gray-900 block mb-2">Nama</label>
-                <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required="">
-            </div>
-            <div class="mb-6">
-                <label for="username" class="text-sm font-medium text-gray-900 block mb-2">Username</label>
-                <input type="username" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required="">
-            </div>
-            <div class="mb-6">
-                <label for="password" class="text-sm font-medium text-gray-900 block mb-2">Password</label>
-                <input type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required="">
-            </div>
-            <div class="flex items-start mb-6">
-                <% if (messages.info) { %>
-                    <div class="alert alert-success" role="alert">
-                        <%= messages.info %>
-                    </div>
-                  <% } %>
+      <form action="/user/register" method="POST">
+        <div class="mb-6">
+          <label for="name" class="text-sm font-medium text-gray-900 block mb-2"
+            >Nama</label
+          >
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="
+              bg-gray-50
+              border border-gray-300
+              text-gray-900
+              sm:text-sm
+              rounded-lg
+              focus:ring-blue-500 focus:border-blue-500
+              block
+              w-full
+              p-2.5
+            "
+            required=""
+          />
+        </div>
+        <div class="mb-6">
+          <label
+            for="username"
+            class="text-sm font-medium text-gray-900 block mb-2"
+            >Username</label
+          >
+          <input
+            type="username"
+            name="username"
+            id="username"
+            class="
+              bg-gray-50
+              border border-gray-300
+              text-gray-900
+              sm:text-sm
+              rounded-lg
+              focus:ring-blue-500 focus:border-blue-500
+              block
+              w-full
+              p-2.5
+            "
+            required=""
+          />
+        </div>
+        <div class="mb-6">
+          <label
+            for="password"
+            class="text-sm font-medium text-gray-900 block mb-2"
+            >Password</label
+          >
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="
+              bg-gray-50
+              border border-gray-300
+              text-gray-900
+              sm:text-sm
+              rounded-lg
+              focus:ring-blue-500 focus:border-blue-500
+              block
+              w-full
+              p-2.5
+            "
+            required=""
+          />
+        </div>
+        <div class="flex items-start mb-6">
+          <% if (messages.info) { %>
+          <div
+            class="
+              w-full
+              alert alert-success
+              bg-green-100
+              border border-green-400
+              text-green-700
+              px-4
+              py-3
+              rounded
+              relative
+            "
+            role="alert"
+          >
+            <%= messages.info %>
+          </div>
+          <% } %> <% if (messages.error) { %>
+          <div
+            class="
+              w-full
+              text-red-600
+              bg-red-100
+              border border-red-400
+              text-red-700
+              px-4
+              py-3
+              rounded
+              relative
+            "
+            role="alert"
+          >
+            <%= messages.error %>
+          </div>
+          <% } %>
+        </div>
 
-                  <% if (messages.error) { %>
-                    <div class="alert alert-danger" role="alert">
-                        <%= messages.error %>
-                    </div>
-                  <% } %>
-            </div>
-            
-            <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Daftar</button>
-        </form>
-        <p class="mt-4 text-center">Sudah punya akun? <a href="/" class="text-indigo-500 font-medium">Login</a></p>
+        <button
+          type="submit"
+          class="
+            w-full
+            text-white
+            bg-blue-700
+            hover:bg-blue-800
+            focus:ring-4 focus:ring-blue-300
+            font-medium
+            rounded-lg
+            text-sm
+            px-5
+            py-2.5
+            text-center
+          "
+        >
+          Daftar
+        </button>
+      </form>
+      <p class="mt-4 text-center">
+        Sudah punya akun?
+        <a href="/" class="text-indigo-500 font-medium">Login</a>
+      </p>
     </div>
-</body>
-
+  </body>
 </html>
