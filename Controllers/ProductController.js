@@ -18,7 +18,7 @@ const ProductController = {
 
         const saveProduct = await newProduct.save()
         req.flash('info',  `${saveProduct.name} berhasil ditambahkan`)
-        res.redirect('/product/add')
+        res.redirect('/product')
     },
     createPage: (req, res) => {
         res.render('Pages/product-add')
@@ -40,7 +40,7 @@ const ProductController = {
                 res.redirect('/product/update')
             }
             req.flash('info', `${doc.name} berhasil diupdate`)
-            res.redirect(`/product/update/${doc._id}`)
+            res.redirect('/product')
         })
     },
     updatePage: (req, res) => {
