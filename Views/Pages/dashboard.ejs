@@ -1,70 +1,143 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="">
+    <meta name="csrf-token" content="" />
 
-    <title></title>
-    <link href="/css/style.css" rel="stylesheet">
-</head>
+    <title>Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="/icon.ico" />
+    <link href="/css/style.css" rel="stylesheet" />
+  </head>
 
-<body class="bg-gray-100 h-screen antialiased leading-none font-sans">
-    <div id="app">
-        <%- include('../Templates/header-after-login') -%>
-    </div>
+  <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
+    <div id="app"><%- include('../Templates/header-after-login') -%></div>
 
-    <section class="mr-20 ml-20 mt-10 flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
+    <section
+      class="
+        mr-20
+        ml-20
+        mt-10
+        flex flex-col
+        break-words
+        bg-white
+        sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg
+      "
+    >
+      <header
+        class="
+          font-semibold
+          bg-gray-200
+          text-gray-700
+          py-5
+          px-6
+          sm:py-6 sm:px-8 sm:rounded-t-md
+        "
+      >
+        Dashboard
+      </header>
 
-        <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-            Dashboard
-        </header>
-
-        <div class="w-full p-6">
-            <section class="text-gray-600 body-font">
-                <div class="container px-5 py-24 mx-auto">
-                    <div class="flex flex-wrap w-full mb-8">
-                        <div class="w-full mb-6 lg:mb-0">
-                            <h1 class="sm:text-4xl text-5xl font-medium title-font mb-2 text-gray-900">Statistik Toko</h1>
-                            <div class="h-1 w-20 bg-indigo-500 rounded"></div>
-                            <p class="mt-4 text-gray-900">Selamat Datang <a href="/user" class="text-indigo-500 font-medium"><%= userName %></a>!</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-wrap -m-4 text-center">
-                        <div class="p-4 sm:w-1/4 w-1/2">
-                            <div class="bg-indigo-500 rounded-lg p-2 xl:p-6">
-                                <h2 class="title-font font-medium sm:text-4xl text-3xl text-white">2.7K</h2>
-                                <p class="leading-relaxed text-gray-100 font-bold">Total Pendapatan</p>
-                            </div>
-                        </div>
-                        <div class="p-4 sm:w-1/4 w-1/2">
-                            <div class="bg-indigo-500 rounded-lg p-2 xl:p-6">
-                                <h2 class="title-font font-medium sm:text-4xl text-3xl text-white">1.8K</h2>
-                                <p class="leading-relaxed text-gray-100 font-bold">Pendapatan Bulanan</p>
-                            </div>
-                        </div>
-                        <div class="p-4 sm:w-1/4 w-1/2">
-                            <div class="bg-indigo-500 rounded-lg p-2 xl:p-6">
-                                <h2 class="title-font font-medium sm:text-4xl text-3xl text-white">35</h2>
-                                <p class="leading-relaxed text-gray-100 font-bold">Jumlah Penjualan</p>
-                            </div>
-                        </div>
-                        <div class="p-4 sm:w-1/4 w-1/2">
-                            <div class="bg-indigo-500 rounded-lg p-2 xl:p-6">
-                                <h2 class="title-font font-medium sm:text-4xl text-3xl text-white"><%= productCount %></h2>
-                                <p class="leading-relaxed text-gray-100 font-bold">Jumlah Produk</p>
-                            </div>
-                        </div>
-                    </div>
+      <div class="w-full p-6">
+        <section class="text-gray-600 body-font">
+          <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-wrap w-full mb-8">
+              <div class="w-full mb-6 lg:mb-0">
+                <h1
+                  class="
+                    sm:text-4xl
+                    text-5xl
+                    font-medium
+                    title-font
+                    mb-2
+                    text-gray-900
+                  "
+                >
+                  Statistik Toko
+                </h1>
+                <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+                <p class="mt-4 text-gray-900">
+                  Selamat Datang
+                  <a href="/user" class="text-indigo-500 font-medium"
+                    ><%= userName %></a
+                  >!
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-wrap -m-4 text-center">
+              <div class="p-4 sm:w-1/4 w-1/2">
+                <div class="bg-indigo-500 rounded-lg p-2 xl:p-6">
+                  <h2
+                    class="
+                      title-font
+                      font-medium
+                      sm:text-4xl
+                      text-3xl text-white
+                    "
+                  >
+                    2.7K
+                  </h2>
+                  <p class="leading-relaxed text-gray-100 font-bold">
+                    Total Pendapatan
+                  </p>
                 </div>
-            </section>
-        </div>
+              </div>
+              <div class="p-4 sm:w-1/4 w-1/2">
+                <div class="bg-indigo-500 rounded-lg p-2 xl:p-6">
+                  <h2
+                    class="
+                      title-font
+                      font-medium
+                      sm:text-4xl
+                      text-3xl text-white
+                    "
+                  >
+                    1.8K
+                  </h2>
+                  <p class="leading-relaxed text-gray-100 font-bold">
+                    Pendapatan Bulanan
+                  </p>
+                </div>
+              </div>
+              <div class="p-4 sm:w-1/4 w-1/2">
+                <div class="bg-indigo-500 rounded-lg p-2 xl:p-6">
+                  <h2
+                    class="
+                      title-font
+                      font-medium
+                      sm:text-4xl
+                      text-3xl text-white
+                    "
+                  >
+                    35
+                  </h2>
+                  <p class="leading-relaxed text-gray-100 font-bold">
+                    Jumlah Penjualan
+                  </p>
+                </div>
+              </div>
+              <div class="p-4 sm:w-1/4 w-1/2">
+                <div class="bg-indigo-500 rounded-lg p-2 xl:p-6">
+                  <h2
+                    class="
+                      title-font
+                      font-medium
+                      sm:text-4xl
+                      text-3xl text-white
+                    "
+                  >
+                    <%= productCount %>
+                  </h2>
+                  <p class="leading-relaxed text-gray-100 font-bold">
+                    Jumlah Produk
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </section>
-
-    
-</body>
-
+  </body>
 </html>
