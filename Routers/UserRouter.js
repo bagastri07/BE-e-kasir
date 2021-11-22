@@ -5,10 +5,11 @@ const isAlreadyLogin = require('../Middlewares/isAlreadyLogin')
 
 //Controller
 const UserController = require('../Controllers/UserController')
+const AuthController = require('../Controllers/AuthController')
 
 router.post('/register', isAlreadyLogin, UserController.create)
-router.post('/login', isAlreadyLogin, UserController.login)
-router.post('/logout', isAuthenticated, UserController.logout)
+router.post('/login', isAlreadyLogin, AuthController.login)
+router.post('/logout', isAuthenticated, AuthController.logout)
 router.get('/', isAuthenticated, UserController.view)
 router.delete('/', isAuthenticated, UserController.delete)
 
