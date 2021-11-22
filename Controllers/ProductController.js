@@ -1,5 +1,4 @@
 const Product = require('../Models/ProductSchema')
-const response = require('../_helpers/response')
 const formatRupiah = require('../_helpers/formatRupiah')
 
 const ProductController = {

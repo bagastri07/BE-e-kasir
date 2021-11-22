@@ -1,4 +1,3 @@
-const { data } = require('autoprefixer')
 const Product = require('../Models/ProductSchema')
 
 

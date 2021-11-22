@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'Public')))
 
 //BodyParser
 app.use(express.json())
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({ extended:false }))
 
 //Method override
 app.use(methodOverride('_method'))

@@ -56,8 +56,6 @@ const UserController = {
           })(req, res, next);
     },
     logout: (req, res) => {
-        if(!req.user) return response(res, 400, false, 'You need to login to logout')
-        let username = req.user.username
         req.logout()
         res.redirect('/')
     }
