@@ -10,6 +10,12 @@
     <title>Tambah Produk Nota</title>
     <link rel="icon" type="image/x-icon" href="/icon.ico" />
     <link href="/css/style.css" rel="stylesheet" />
+    <script
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/dynamic-form.js"></script>
   </head>
 
   <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
@@ -55,6 +61,7 @@
               hover:bg-green-700
               float-right
             "
+            id="plus"
           >
             Tambah Barang
           </button>
@@ -223,6 +230,27 @@
             <label class="mb-2 text-gray-900" for="first_name">Total</label>
             <p class="w-96 text-grey-800 font-bold">Rp.123</p>
           </div>
+          <form action="/tambahbarang.html">
+            <button
+              class="
+                w-40
+                h-10
+                mb-6
+                bg-green-500
+                text-white
+                font-bold
+                py-1
+                px-2
+                border
+                rounded
+                hover:bg-green-700
+                float-right
+              "
+              id="plus"
+            >
+              Tambah Barang
+            </button>
+          </form>
         </form>
         <form>
           <button
