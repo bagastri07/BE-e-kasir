@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="" />
+
+    <title>Profil</title>
+    <link rel="icon" type="image/x-icon" href="/icon.ico" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <script
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/dynamic-form.js"></script>
+  </head>
+
+  <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
+    <div id="app"><%- include('../Templates/header-after-login') -%></div>
+
+    <div class="flex items-center justify-center">
+      <div class="px-40 py-20">
+        <div class="flex flex-col items-center">
+          <h1 class="font-bold text-blue-600 text-9xl">404</h1>
+
+          <h6
+            class="
+              mb-2
+              text-2xl
+              font-bold
+              text-center text-gray-800
+              md:text-3xl
+            "
+          >
+            <span class="text-red-500">Oops!</span> Page not found
+          </h6>
+
+          <p class="mb-8 text-center text-gray-500 md:text-lg">
+            The page you’re looking for doesn’t exist.
+          </p>
+
+          <a
+            href="#"
+            class="px-6 py-2 text-sm font-semibold text-blue-800 bg-blue-100"
+            >Go home</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
