@@ -45,42 +45,61 @@
       </header>
 
       <div class="w-full p-6">
+        
         <div class="flex flex-col mb-4">
           <label class="mb-2 text-gray-900 font-semibold" for="first_name"
             >Nama</label
           >
-          <p>Nama Pengguna</p>
+          <p><%= user.name %></p>
         </div>
         <div class="flex flex-col mb-4">
           <label class="mb-2 text-gray-900 font-semibold" for="first_name"
             >Username</label
           >
-          <p>Username Pengguna</p>
+          <p><%= user.username %></p>
         </div>
-        <div class="flex flex-col mb-4">
+        <!-- <div class="flex flex-col mb-4">
           <label class="mb-2 text-gray-900 font-semibold" for="first_name"
             >Email</label
           >
           <p>Email Pengguna</p>
-        </div>
-        <button
-          class="
-            w-40
-            h-10
-            mb-6
-            bg-green-500
-            text-white
-            font-bold
-            py-1
-            px-2
-            border
-            rounded
-            hover:bg-blue-700
-          "
-          type="submit"
-        >
-          Ubah Profil
-        </button>
+        </div> -->
+        <form action="/user/update" method="get">
+            <button
+            class="
+              w-40
+              h-10
+              mb-6
+              bg-green-500
+              text-white
+              font-bold
+              py-1
+              px-2
+              border
+              rounded
+              hover:bg-blue-700
+            "
+            type="submit"
+          >
+            Ubah Profil
+          </button>
+        </form>
+        <% if (messages.info) { %>
+          <div class="alert alert-success" role="alert">
+            <p
+              class="
+                bg-green-500
+                p-2
+                text-white
+                font-bold
+                md:border md:border-grey-500
+                text-left
+              "
+            >
+              <%= messages.info %>
+            </p>
+          </div>
+          <% } %>
       </div>
     </section>
   </body>

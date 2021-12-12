@@ -60,6 +60,7 @@ app.use(passport.session())
 //Routers
 app.use('/user', require('./Routers/UserRouter'))
 app.use('/product', require('./Routers/ProductRouter'))
+app.use('/invoice', require('./Routers/InvoiceRouter'))
 app.use(require('./Routers/BasicRouter'))
 
 //Capture All 404 errorss

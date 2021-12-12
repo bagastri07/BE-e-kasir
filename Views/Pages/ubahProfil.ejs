@@ -39,15 +39,32 @@
         Ubah Profil
       </header>
 
+      <% if (messages.info) { %>
+        <div class="alert alert-success" role="alert">
+          <p
+            class="
+              bg-green-500
+              p-2
+              text-white
+              font-bold
+              md:border md:border-grey-500
+              text-left
+            "
+          >
+            <%= messages.info %>
+          </p>
+        </div>
+        <% } %>
       <div class="w-full p-6">
-        <form method="POST" action="/ubahbarang/update">
+        <form method="POST" action="/user/update?_method=PUT">
           <div class="flex flex-col mb-4">
             <label class="mb-2 text-gray-900" for="first_name">Nama</label>
             <input
               class="w-96 border py-2 px-3 text-grey-800"
               type="text"
-              name="nama"
+              name="name"
               id="nama"
+              value="<%= user.name %>"
             />
           </div>
           <div class="flex flex-col mb-4">
@@ -55,11 +72,12 @@
             <input
               class="w-96 border py-2 px-3 text-grey-800"
               type="text"
-              name="Username"
+              name="username"
               id="Username"
+              value="<%= user.username %>"
             />
           </div>
-          <div class="flex flex-col mb-4">
+          <!-- <div class="flex flex-col mb-4">
             <label class="mb-2 text-gray-900" for="first_name">Email</label>
             <input
               class="w-96 border py-2 px-3 text-grey-800"
@@ -67,13 +85,13 @@
               name="email"
               id="email"
             />
-          </div>
+          </div> -->
           <div class="flex flex-col mb-4">
             <label class="mb-2 text-gray-900" for="first_name">Password</label>
             <input
               class="w-96 border py-2 px-3 text-grey-800"
-              type="text"
-              name="Password"
+              type="password"
+              name="password"
               id="Password"
             />
           </div>

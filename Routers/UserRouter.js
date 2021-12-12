@@ -12,5 +12,6 @@ router.post('/login', isAlreadyLogin, AuthController.login)
 router.post('/logout', isAuthenticated, AuthController.logout)
 router.get('/', isAuthenticated, UserController.view)
 router.delete('/', isAuthenticated, UserController.delete)
-
+router.get('/update', isAuthenticated, UserController.updateView)
+router.put('/update', isAuthenticated, UserController.update)
 module.exports = router

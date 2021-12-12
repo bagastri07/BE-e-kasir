@@ -30,7 +30,14 @@ const UserController = {
     view: (req, res) => {
         User.findOne({username: req.user.username}, (err, doc) => {
             if (err) return response(res, 500, false, err)
-            return response(res, 200, true, 'Data ready', doc)
+
+            let userData = {
+                name: doc.name,
+                username: doc.username,
+            }
+            return res.render('Pages/profil', {
+                user: userData
+            })
         })
     },
     delete: (req, res) => {
@@ -42,23 +49,31 @@ const UserController = {
             return response(res, 200, true, 'Account Deleted & Account has been logout', data)
         })
     },
-    login: (req, res, next) => {
-        passport.authenticate('local', (err, user, info) => {
-            if (err) return response(res, 500, false, err)
-            if (!user) {
-                req.flash('error', 'Username atau Password anda salah')
-                res.redirect('/')
+    update: async (req, res) => {
+        var userData = req.body
+        userData.password = await bcrypt.hash(userData.password, 5)
+
+        User.findByIdAndUpdate({_id: req.user._id}, userData, {new: true}, (err, doc) => {
+            if (err) throw err;
+            if (!doc) {
+                req.flash('info', 'No User found')
+                res.redirect('/user/update')
             }
-            req.logIn(user, (err) => {
-              if (err) { return next(err); }
-              res.redirect('/dashboard')
-            });
-          })(req, res, next);
+            req.user = doc
+            req.flash('info', 'User berhasil diganti')
+            res.redirect('/user')
+        })
     },
-    logout: (req, res) => {
-        req.logout()
-        res.redirect('/')
+    updateView: (req, res) => {
+        let userData = {
+            name: req.user.name,
+            username: req.user.username
+        }
+        res.render('Pages/ubahProfil', {
+            user: userData
+        })
     }
+    
 }
 
 module.exports = UserController
