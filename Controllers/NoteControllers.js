@@ -23,7 +23,7 @@ const NotesControllers = {
         res.render('Pages/invoice')
     },
     viewAll: (req, res) => {
-        Note.find({}).exec((err, doc) => {
+        Note.find({user : req.user._id}).exec((err, doc) => {
             res.render('Pages/listNota', {
                 notes: doc,
                 formatDate: formatDate,
