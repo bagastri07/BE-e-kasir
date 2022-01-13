@@ -3,10 +3,13 @@ const router = express.Router()
 const isAuthenticated = require('../Middlewares/isAuthenticated')
 
 //Controller
-const InvoiceControllers = require('../Controllers/NoteControllers')
+const NoteControllers = require('../Controllers/NoteControllers')
 
-router.get('/', isAuthenticated, InvoiceControllers.view)
-router.get('/add', isAuthenticated, InvoiceControllers.createPage)
+router.post('/', isAuthenticated, NoteControllers.create)
+router.get('/add', isAuthenticated, NoteControllers.createPage)
+router.get('/', isAuthenticated, NoteControllers.viewAll)
+router.delete('/:id', isAuthenticated, NoteControllers.delete)
+router.get('/:id', isAuthenticated, NoteControllers.view)
 
 module.exports = router
 
