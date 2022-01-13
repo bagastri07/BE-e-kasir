@@ -6,7 +6,7 @@ const formatRupiah = require('../_helpers/formatRupiah')
 
 const NotesControllers = {
     view: (req, res) => {
-        Note.findOne({_id: req.params.id, user: req.user.id}, (err, doc) => {
+        Note.findOne({_id: req.params.id, user: req.user._id}, (err, doc) => {
             if (err) return response(res, 500, false, err)
             if (!doc) return response(res, 400, false, 'Not found')
 
